@@ -17,25 +17,29 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <AppNavbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/menu" element={<MenuPage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+        <div className="d-flex flex-column min-vh-100">
+          <AppNavbar />
+          <main className="flex-grow-1">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/menu" element={<MenuPage />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
 
-          <Route path="/login" element={<Login />} />
+              <Route path="/login" element={<Login />} />
 
-          <Route
-            path="/admin/menu"
-            element={
-              <ProtectedRoute>
-                <AdminMenu />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
-        <Footer />
+              <Route
+                path="/admin/menu"
+                element={
+                  <ProtectedRoute>
+                    <AdminMenu />
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </Router>
     </AuthProvider>
   );
